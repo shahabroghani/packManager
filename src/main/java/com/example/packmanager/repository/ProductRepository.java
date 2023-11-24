@@ -15,6 +15,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "SELECT Coalesce(AVG(p.price), 0) FROM Product p where p.weight BETWEEN :minWeight AND :maxWeight ")
     BigDecimal getAverageByWeightBetween(@Param("minWeight") BigDecimal minWeight, @Param("maxWeight") BigDecimal maxWeight);
 
-    List<Product> getAllByIdInAndWeightIsLessThanEqualOrderByPriceDescWeightAsc(List<Long> ids, BigDecimal maxWeight);
+    List<Product> getAllByIdInAndWeightIsLessThanEqual(List<Long> ids, BigDecimal maxWeight);
 
 }
